@@ -1,19 +1,37 @@
+import { useRef, useState } from 'react';
 import styles from '../styles/Home.module.css'
+import Link from 'next/link';
 
-let value = null;
+function Search() {
+    const [value, setValue] = useState('');
+    const [visible, setVisible] = useState(false);  
+    const [result, setResult] = useState([]);   
+    const searchRef = useRef(null);
 
-function Search({movie}) {
    const  searchEvent = (e) => {
         value = e.target.value;
+        setValue(value);
+        if(value.length){
+            return value;
+            }
+        }
 
-    }
 
     return <div className={styles.search}>
         <input className={styles.searchInput}
             type={"search"} placeholder={"Film, dizi, kişi ara..."}
-            onChange={searchEvent}/>
-            {movie}
-        <input className={styles.button} type={"submit"} value={"Search"}/></div>
+            onChange={searchEvent}
+            value={value}/>
+        { visible && result.length >0 && (
+            <ul>
+               { result.map((obj, id) =>
+               <li key={id}>
+                    <Link href={`/`+obj.id}>{obj.title}</Link>
+                </li>)}
+            </ul>
+        )}
+        {/* <input className={styles.button} type={"submit"} value={"Search"}/> */}
+        </div>
 }
 
 
@@ -27,4 +45,3 @@ export async function getServerSideProps({params}) {
 }
 
 export default Search
-//c114dd6a1bdd3e75c58b3cf94af8425e
