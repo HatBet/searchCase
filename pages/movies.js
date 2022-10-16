@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from '../styles/Home.module.css'
 import Menu from './menu';
-
+// Yakında vizyona girecekler
 function Movies({ movies }) {
     const data = movies.results;
     return <div >
@@ -26,7 +26,7 @@ function Movies({ movies }) {
 
 
 export async function getServerSideProps() {
-    const request = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=c114dd6a1bdd3e75c58b3cf94af8425e&language=en-US&page=1`)
+    const request = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=c114dd6a1bdd3e75c58b3cf94af8425e&language=tr-TR&page=1`)
     const upcomingMovie = await request.json()
 
     return {
