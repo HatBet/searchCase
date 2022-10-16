@@ -1,15 +1,15 @@
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 export default function Menu() {
     return (
         <nav className={styles.nav}>
-            <a href="">Logo
-            </a>
+            <Link href={"/"}>Logo</Link>
             <div className={styles.menu}>
-                <a className={styles.navLink} href="#">Filmler <span className="sr-only"></span></a>
-                <a className={styles.navLink} href="#">Diziler</a>
-                <a className={styles.navLink} href="#">Kişiler</a>
-                <a className={styles.navLink} href="#">Daha Fazla</a>
+                <Link className={styles.navLink} href="/movies">Filmler</Link>
+                <Link className={styles.navLink} href="/">Diziler</Link>
+                <Link className={styles.navLink} href="/">Kişiler</Link>
+                <Link className={styles.navLink} href="/">Hakkında</Link>
             </div>
         </nav>
     )

@@ -40,7 +40,7 @@
 }
 
 .navLink {
-  margin-right: 25px;
+  margin: 5%;
   font-size: 16px;
   font-weight: bold;
 }
@@ -50,22 +50,44 @@
   align-items: center;
   background: #025e82;
   position: fixed;
-  top: 4em;
-  margin: 0 17em;
+  top: 3%;
+  margin: 0 16%;
   width: 70%;
   height: 35%;
+}
+.movieMain {
+  display: flex;
+  align-items: center;
+  background: #025e82;
+  position: fixed;
+  top: 6%;
+  margin: 0px 16%;
+  width: 65%;
+  overflow-y: scroll;
+  height: 94%;
+  padding-top: 45em;
+  padding-bottom: 2em;
+  color: #fff;
+}
+.moviePoster{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10px;
+}
+.moviePosterInfo{
+  margin-left: 10px;
 }
 
 .title {
   color: #fff;
   line-height: 1;
   margin-bottom: auto;
-  margin-left: 5em;
+  margin-left: 15%;
 }
 
 .search {
   display: grid;
-  margin-left: 5em;
+  margin-left: 14%;
   width: 100%;
   max-width: 11000px;
   height: 3em;
@@ -92,8 +114,8 @@
     background: #0cc1ce;
     border-radius: 30px;
     position: absolute;
-    top: 190px;
-    right: 44em;
+    top: 61.5%;
+    left: 44%;
     color: #fff;
     z-index: 9999999;
 }
