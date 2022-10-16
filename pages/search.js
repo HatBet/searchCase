@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
-//Searchbar
+
 function Search() {
     const [value, setValue] = useState('');
     const [visible, setVisible] = useState(false);
@@ -12,21 +12,19 @@ function Search() {
         value = e.target.value;
         setValue(value);
         if (value.length) {
-            // await fetch(`
-            // https://api.themoviedb.org/3/search/keyword?api_key=c114dd6a1bdd3e75c58b3cf94af8425e&query=${value}&page=1`)
-            // .then((res) => 
-            //  {const movies = res.json()
-            //      setResult(movies);
-            //      setVisible(true);
-            //      console.log(result)
-
-            // return {
-            //     props: { movie: movies },
-            // }}).catch((error) => 
-            // {console.log(error)})
+            fetch(`
+            https://api.themoviedb.org/3/search/keyword?api_key=c114dd6a1bdd3e75c58b3cf94af8425e&query=${value}&page=1`)
+            .then((res) => 
+             {const movies = res.json()
+                 setResult(movies);
+                 setVisible(true);
+             }).catch((error) => 
+            {console.log(error)})
             return value;
         }
     }
+    console.log(visible, result)
+    //Promise ?
     return <div className={styles.search}
         ref={searchRef}>
         <input className={styles.searchInput}
@@ -47,7 +45,6 @@ function Search() {
 
 
 export async function getServerSideProps({value}) {
-    console.log(value);
    const request = await fetch(`https://api.themoviedb.org/3/search/keyword?api_key=c114dd6a1bdd3e75c58b3cf94af8425e&query=${value}&page=1`)
    const searchBar = await request.json()
 
